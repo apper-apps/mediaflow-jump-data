@@ -1,9 +1,8 @@
-import competitorAdsMockData from "@/services/mockData/competitorAds.json";
-
 class CompetitorAdsService {
   constructor() {
-    this.data = [...competitorAdsMockData];
-    this.currentId = Math.max(...this.data.map(item => item.Id)) + 1;
+    // Initialize with empty data array - can be populated via API or uploads
+    this.data = [];
+    this.currentId = 1;
   }
 
   async delay() {
