@@ -1,0 +1,154 @@
+[
+  {
+    "Id": 1,
+    "name": "Tech Professionals",
+    "description": "Software engineers, developers, and IT professionals aged 25-45",
+    "demographics": {
+      "ageRange": "25-45",
+      "gender": "All",
+      "income": "$75,000+",
+      "education": "Bachelor's degree or higher"
+    },
+    "interests": ["Technology", "Programming", "Software Development", "Cloud Computing", "AI/ML"],
+    "behaviors": ["Tech early adopters", "B2B software users", "Online learning", "Professional networking"],
+    "platforms": ["LinkedIn", "Google", "Twitter", "YouTube"],
+    "estimatedReach": 2500000,
+    "cpm": 8.50,
+    "conversionRate": 3.2,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Fitness Enthusiasts",
+    "description": "Active lifestyle seekers interested in health and fitness",
+    "demographics": {
+      "ageRange": "22-55",
+      "gender": "All",
+      "income": "$40,000+",
+      "education": "High school or higher"
+    },
+    "interests": ["Fitness", "Health", "Nutrition", "Yoga", "Running", "Gym workouts"],
+    "behaviors": ["Fitness app users", "Supplement buyers", "Gym members", "Health-conscious shopping"],
+    "platforms": ["Instagram", "Facebook", "TikTok", "YouTube"],
+    "estimatedReach": 3200000,
+    "cpm": 6.25,
+    "conversionRate": 4.1,
+    "createdAt": "2024-01-16T14:30:00Z",
+    "updatedAt": "2024-01-16T14:30:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "Eco-Conscious Consumers",
+    "description": "Environmentally aware consumers interested in sustainable products",
+    "demographics": {
+      "ageRange": "28-50",
+      "gender": "All",
+      "income": "$50,000+",
+      "education": "Some college or higher"
+    },
+    "interests": ["Sustainability", "Organic products", "Renewable energy", "Environmental causes", "Green living"],
+    "behaviors": ["Eco-friendly purchases", "Recycling advocates", "Organic food buyers", "Electric vehicle interest"],
+    "platforms": ["Facebook", "Instagram", "Pinterest", "Google"],
+    "estimatedReach": 1800000,
+    "cpm": 7.75,
+    "conversionRate": 3.8,
+    "createdAt": "2024-01-17T09:15:00Z",
+    "updatedAt": "2024-01-17T09:15:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "Young Parents",
+    "description": "Parents with children aged 0-12, interested in family products and services",
+    "demographics": {
+      "ageRange": "25-40",
+      "gender": "All",
+      "income": "$35,000+",
+      "education": "High school or higher"
+    },
+    "interests": ["Parenting", "Child development", "Family activities", "Education", "Baby products"],
+    "behaviors": ["Online shopping for kids", "Educational content consumers", "Family planning", "Child safety focused"],
+    "platforms": ["Facebook", "Instagram", "Pinterest", "YouTube"],
+    "estimatedReach": 2100000,
+    "cpm": 5.90,
+    "conversionRate": 4.5,
+    "createdAt": "2024-01-18T11:45:00Z",
+    "updatedAt": "2024-01-18T11:45:00Z"
+  },
+  {
+    "Id": 5,
+    "name": "Gaming Community",
+    "description": "Video game enthusiasts across console, PC, and mobile platforms",
+    "demographics": {
+      "ageRange": "16-35",
+      "gender": "All",
+      "income": "$25,000+",
+      "education": "High school or higher"
+    },
+    "interests": ["Video games", "Esports", "Gaming hardware", "Streaming", "Gaming communities"],
+    "behaviors": ["Gaming platform users", "Game purchasers", "Streaming viewers", "Gaming content creators"],
+    "platforms": ["Twitch", "YouTube", "Twitter", "TikTok", "Discord"],
+    "estimatedReach": 4100000,
+    "cpm": 4.25,
+    "conversionRate": 2.8,
+    "createdAt": "2024-01-19T16:20:00Z",
+    "updatedAt": "2024-01-19T16:20:00Z"
+  },
+  {
+    "Id": 6,
+    "name": "Luxury Travelers",
+    "description": "High-income individuals interested in premium travel experiences",
+    "demographics": {
+      "ageRange": "35-65",
+      "gender": "All",
+      "income": "$100,000+",
+      "education": "Bachelor's degree or higher"
+    },
+    "interests": ["Luxury travel", "Fine dining", "Premium hotels", "Cultural experiences", "Adventure travel"],
+    "behaviors": ["Frequent travelers", "Premium service users", "Luxury brand buyers", "Travel planning"],
+    "platforms": ["Instagram", "Facebook", "Google", "LinkedIn"],
+    "estimatedReach": 850000,
+    "cpm": 12.50,
+    "conversionRate": 5.2,
+    "createdAt": "2024-01-20T08:30:00Z",
+    "updatedAt": "2024-01-20T08:30:00Z"
+  },
+  {
+    "Id": 7,
+    "name": "Small Business Owners",
+    "description": "Entrepreneurs and small business owners seeking growth solutions",
+    "demographics": {
+      "ageRange": "30-55",
+      "gender": "All",
+      "income": "$50,000+",
+      "education": "Some college or higher"
+    },
+    "interests": ["Entrepreneurship", "Business growth", "Marketing", "Finance", "Leadership"],
+    "behaviors": ["B2B software users", "Business networking", "Professional development", "Industry research"],
+    "platforms": ["LinkedIn", "Google", "Facebook", "YouTube"],
+    "estimatedReach": 1200000,
+    "cpm": 9.25,
+    "conversionRate": 6.1,
+    "createdAt": "2024-01-21T13:00:00Z",
+    "updatedAt": "2024-01-21T13:00:00Z"
+  },
+  {
+    "Id": 8,
+    "name": "Fashion Forward Millennials",
+    "description": "Style-conscious millennials interested in fashion and lifestyle brands",
+    "demographics": {
+      "ageRange": "25-40",
+      "gender": "All",
+      "income": "$35,000+",
+      "education": "High school or higher"
+    },
+    "interests": ["Fashion", "Style", "Beauty", "Lifestyle", "Trend following"],
+    "behaviors": ["Fashion e-commerce", "Style influencer followers", "Brand conscious shopping", "Social sharing"],
+    "platforms": ["Instagram", "TikTok", "Pinterest", "Snapchat"],
+    "estimatedReach": 2800000,
+    "cpm": 5.75,
+    "conversionRate": 3.7,
+    "createdAt": "2024-01-22T15:45:00Z",
+    "updatedAt": "2024-01-22T15:45:00Z"
+  }
+]
