@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/atoms/Card";
-import Button from "@/components/atoms/Button";
-import Input from "@/components/atoms/Input";
-import Select from "@/components/atoms/Select";
-import Badge from "@/components/atoms/Badge";
-import BudgetAllocator from "@/components/organisms/BudgetAllocator";
-import AudienceBuilder from "@/components/organisms/AudienceBuilder";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
 import { toast } from "react-toastify";
 import { format } from "date-fns";
+import ApperIcon from "@/components/ApperIcon";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Input from "@/components/atoms/Input";
+import Badge from "@/components/atoms/Badge";
+import Select from "@/components/atoms/Select";
+import Button from "@/components/atoms/Button";
+import AudienceBuilder from "@/components/organisms/AudienceBuilder";
+import BudgetAllocator from "@/components/organisms/BudgetAllocator";
+import Audiences from "@/components/pages/Audiences";
 import MediaPlansService from "@/services/api/MediaPlansService";
 
 const MediaPlanDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [plan, setPlan] = useState(null);
+const [plan, setPlan] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState("overview");
@@ -55,7 +56,7 @@ const MediaPlanDetail = () => {
       setError("");
       const data = await MediaPlansService.getById(parseInt(id));
       setPlan(data);
-      setEditForm({
+setEditForm({
         name: data.name || "",
         objective: data.objective || "",
         totalBudget: data.totalBudget || "",
@@ -82,7 +83,7 @@ const MediaPlanDetail = () => {
         updatedAt: new Date().toISOString()
       };
       
-      await MediaPlansService.update(plan.Id, updatedPlan);
+await MediaPlansService.update(plan.Id, updatedPlan);
       setPlan(updatedPlan);
       setIsEditing(false);
       toast.success("Media plan updated successfully!");
@@ -96,7 +97,7 @@ const MediaPlanDetail = () => {
 
   const handleChannelsChange = async (channels) => {
     try {
-      const updatedPlan = { ...plan, channels, updatedAt: new Date().toISOString() };
+const updatedPlan = { ...plan, channels, updatedAt: new Date().toISOString() };
       await MediaPlansService.update(plan.Id, updatedPlan);
       setPlan(updatedPlan);
     } catch (err) {
@@ -147,7 +148,7 @@ const MediaPlanDetail = () => {
   if (error) return <Error message={error} onRetry={loadPlan} />;
   if (!plan) return <Error message="Media plan not found" />;
 
-  const totalBudget = plan.channels?.reduce((sum, channel) => sum + (channel.budget || 0), 0) || 0;
+const totalBudget = plan.channels?.reduce((sum, channel) => sum + (channel.budget || 0), 0) || 0;
   const remainingBudget = (plan.totalBudget || 0) - totalBudget;
 
   return (
@@ -170,12 +171,12 @@ const MediaPlanDetail = () => {
                     value={editForm.name}
                     onChange={(e) => setEditForm(prev => ({ ...prev, name: e.target.value }))}
                     className="text-2xl font-bold border-0 p-0 bg-transparent focus:ring-0"
-                  />
+/>
                 ) : (
-                  plan.name
+                  {plan.name}
                 )}
               </h1>
-              <Badge variant={getStatusColor(plan.status)}>
+<Badge variant={getStatusColor(plan.status)}>
                 {plan.status}
               </Badge>
             </div>
@@ -188,7 +189,7 @@ const MediaPlanDetail = () => {
                   className="border-0 p-0 bg-transparent"
                 />
               ) : (
-                plan.objective
+{plan.objective}
               )}
             </p>
           </div>
@@ -202,7 +203,7 @@ const MediaPlanDetail = () => {
                 onClick={() => {
                   setIsEditing(false);
                   setEditForm({
-                    name: plan.name || "",
+name: plan.name || "",
                     objective: plan.objective || "",
                     totalBudget: plan.totalBudget || "",
                     startDate: plan.startDate || "",
@@ -285,7 +286,7 @@ const MediaPlanDetail = () => {
                       />
                     ) : (
                       <p className="text-slate-900">
-                        {plan.startDate ? format(new Date(plan.startDate), "PPP") : "Not set"}
+{plan.startDate ? format(new Date(plan.startDate), "PPP") : "Not set"}
                       </p>
                     )}
                   </div>
@@ -301,7 +302,7 @@ const MediaPlanDetail = () => {
                       />
                     ) : (
                       <p className="text-slate-900">
-                        {plan.endDate ? format(new Date(plan.endDate), "PPP") : "Not set"}
+{plan.endDate ? format(new Date(plan.endDate), "PPP") : "Not set"}
                       </p>
                     )}
                   </div>
@@ -319,7 +320,7 @@ const MediaPlanDetail = () => {
                     />
                   ) : (
                     <p className="text-2xl font-bold text-primary-600">
-                      ${(plan.totalBudget || 0).toLocaleString()}
+${(plan.totalBudget || 0).toLocaleString()}
                     </p>
                   )}
                 </div>
@@ -335,7 +336,7 @@ const MediaPlanDetail = () => {
                       options={statusOptions}
                     />
                   ) : (
-                    <Badge variant={getStatusColor(plan.status)}>
+<Badge variant={getStatusColor(plan.status)}>
                       {plan.status}
                     </Badge>
                   )}
@@ -353,7 +354,7 @@ const MediaPlanDetail = () => {
                   <div className="text-center">
                     <p className="text-sm text-slate-600">Total Budget</p>
                     <p className="text-xl font-bold text-slate-900">
-                      ${(plan.totalBudget || 0).toLocaleString()}
+${(plan.totalBudget || 0).toLocaleString()}
                     </p>
                   </div>
                   <div className="text-center">
@@ -370,11 +371,11 @@ const MediaPlanDetail = () => {
                   </div>
                 </div>
                 
-                {plan.channels && plan.channels.length > 0 && (
+{plan.channels && plan.channels.length > 0 && (
                   <div className="space-y-3">
                     <h4 className="font-medium text-slate-900">Channel Breakdown</h4>
                     {plan.channels.map((channel) => (
-                      <div key={channel.id} className="flex items-center justify-between">
+<div key={channel.id} className="flex items-center justify-between">
                         <span className="text-sm text-slate-700">{channel.platform}</span>
                         <span className="font-medium text-slate-900">
                           ${(channel.budget || 0).toLocaleString()} 
@@ -399,7 +400,7 @@ const MediaPlanDetail = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  {plan.collaborators?.map((collaborator, index) => (
+{plan.collaborators?.map((collaborator, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full flex items-center justify-center">
                         <span className="text-white text-sm font-semibold">
@@ -424,15 +425,15 @@ const MediaPlanDetail = () => {
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-slate-600">Channels</span>
-                  <span className="font-medium">{plan.channels?.length || 0}</span>
+<span className="font-medium">{plan.channels?.length || 0}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-slate-600">Audiences</span>
-                  <span className="font-medium">{plan.audiences?.length || 0}</span>
+<span className="font-medium">{plan.audiences?.length || 0}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-slate-600">Last Updated</span>
-                  <span className="text-sm text-slate-700">
+<span className="text-sm text-slate-700">
                     {format(new Date(plan.updatedAt), "MMM d, yyyy")}
                   </span>
                 </div>
@@ -444,7 +445,7 @@ const MediaPlanDetail = () => {
 
       {activeTab === "budget" && (
         <BudgetAllocator
-          totalBudget={plan.totalBudget || 0}
+totalBudget={plan.totalBudget || 0}
           channels={plan.channels || []}
           onChannelsChange={handleChannelsChange}
         />
@@ -461,7 +462,7 @@ const MediaPlanDetail = () => {
               <CardTitle>Saved Audiences</CardTitle>
             </CardHeader>
             <CardContent>
-              {plan.audiences && plan.audiences.length > 0 ? (
+{plan.audiences && plan.audiences.length > 0 ? (
                 <div className="space-y-3">
                   {plan.audiences.map((audienceId, index) => (
                     <div key={index} className="p-3 bg-slate-50 rounded-lg">

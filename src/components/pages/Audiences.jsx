@@ -76,7 +76,7 @@ const Audiences = () => {
 
     try {
       await AudiencesService.delete(audienceId);
-      setAudiences(prev => prev.filter(a => a.Id !== audienceId));
+setAudiences(prev => prev.filter(a => a.Id !== audienceId));
       toast.success("Audience deleted successfully");
     } catch (err) {
       toast.error("Failed to delete audience");
@@ -88,10 +88,10 @@ const Audiences = () => {
     try {
       const originalAudience = await AudiencesService.getById(audienceId);
       const duplicatedAudience = {
-        ...originalAudience,
+...originalAudience,
         name: `${originalAudience.name} (Copy)`
       };
-      delete duplicatedAudience.Id;
+delete duplicatedAudience.Id;
 
       const createdAudience = await AudiencesService.create(duplicatedAudience);
       setAudiences(prev => [createdAudience, ...prev]);
@@ -216,12 +216,12 @@ const Audiences = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredAudiences.map((audience) => (
-            <Card key={audience.Id} hover>
+<Card key={audience.Id} hover>
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                      {audience.name}
+{audience.name}
                     </h3>
                     <div className="flex items-center space-x-2 mb-3">
                       <Badge variant={getReachColor(audience.estimatedReach)}>
@@ -235,14 +235,14 @@ const Audiences = () => {
                     </div>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <button
+<button
                       onClick={() => handleDuplicateAudience(audience.Id)}
                       className="p-1 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded transition-colors"
                     >
                       <ApperIcon name="Copy" className="w-4 h-4" />
                     </button>
                     <button
-                      onClick={() => handleDeleteAudience(audience.Id)}
+onClick={() => handleDeleteAudience(audience.Id)}
                       className="p-1 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
                     >
                       <ApperIcon name="Trash2" className="w-4 h-4" />
@@ -487,7 +487,7 @@ const Audiences = () => {
                   Close
                 </Button>
                 <Button
-                  onClick={() => handleDuplicateAudience(selectedAudience.Id)}
+onClick={() => handleDuplicateAudience(selectedAudience.Id)}
                   icon="Copy"
                 >
                   Duplicate

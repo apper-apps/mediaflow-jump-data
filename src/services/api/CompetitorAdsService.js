@@ -27,7 +27,7 @@ class CompetitorAdsService {
     await this.delay();
     const item = {
       ...newItem,
-      Id: this.currentId++,
+Id: this.currentId++,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };

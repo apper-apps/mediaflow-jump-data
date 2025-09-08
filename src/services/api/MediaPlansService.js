@@ -1,17 +1,21 @@
 // Mock data embedded directly in service to prevent file dependency issues
 const mediaPlansMockData = [
   {
-    Id: 1,
-    Name: "Q4 Holiday Campaign",
-    Budget: 150000,
-    Status: "Active",
-    Channels: ["Google Ads", "Meta", "TikTok"],
-    StartDate: "2024-10-01",
-    EndDate: "2024-12-31",
-    TargetAudience: "Holiday Shoppers 25-45",
-    Objective: "Brand Awareness & Sales",
-    CreatedAt: "2024-09-15",
-    UpdatedAt: "2024-11-20"
+Id: 1,
+    name: "Q4 Holiday Campaign",
+    totalBudget: 150000,
+    status: "active",
+    channels: [
+      { id: 1, platform: "Google Ads", budget: 60000 },
+      { id: 2, platform: "Meta", budget: 50000 },
+      { id: 3, platform: "TikTok", budget: 40000 }
+    ],
+    startDate: "2024-10-01",
+    endDate: "2024-12-31",
+    objective: "brand-awareness",
+    notes: "Holiday season campaign targeting gift buyers",
+    createdAt: "2024-09-15",
+    updatedAt: "2024-11-20"
   },
   {
     Id: 2,
@@ -84,7 +88,7 @@ class MediaPlansService {
 
   async getById(id) {
     await this.delay();
-    const item = this.data.find(item => item.Id === parseInt(id));
+const item = this.data.find(item => item.Id === parseInt(id));
     if (!item) {
       throw new Error("Media plan not found");
     }
@@ -95,7 +99,7 @@ class MediaPlansService {
     await this.delay();
     const item = {
       ...newItem,
-      Id: this.currentId++,
+Id: this.currentId++,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
@@ -105,7 +109,7 @@ class MediaPlansService {
 
   async update(id, updatedData) {
     await this.delay();
-    const index = this.data.findIndex(item => item.Id === parseInt(id));
+const index = this.data.findIndex(item => item.Id === parseInt(id));
     if (index === -1) {
       throw new Error("Media plan not found");
     }
@@ -115,7 +119,7 @@ class MediaPlansService {
 
   async delete(id) {
     await this.delay();
-    const index = this.data.findIndex(item => item.Id === parseInt(id));
+const index = this.data.findIndex(item => item.Id === parseInt(id));
     if (index === -1) {
       throw new Error("Media plan not found");
     }

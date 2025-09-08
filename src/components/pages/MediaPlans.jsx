@@ -79,7 +79,7 @@ const MediaPlans = () => {
         endDate: ""
       });
       toast.success("Media plan created successfully!");
-      navigate(`/plans/${createdPlan.Id}`);
+navigate(`/media-plans/${createdPlan.Id}`);
     } catch (err) {
       toast.error("Failed to create media plan");
       console.error("Create plan error:", err);
@@ -255,7 +255,7 @@ const MediaPlans = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedPlans.map((plan) => (
             <MediaPlanCard
-              key={plan.Id}
+key={plan.Id}
               plan={plan}
               onEdit={(id) => navigate(`/plans/${id}`)}
               onDelete={handleDeletePlan}

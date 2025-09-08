@@ -11,7 +11,7 @@ const Header = ({ onMenuToggle, searchQuery, onSearchChange, onSearchClear }) =>
     switch (location.pathname) {
       case "/":
         return "Dashboard";
-      case "/plans":
+case "/media-plans":
         return "Media Plans";
       case "/audiences":
         return "Audiences";
@@ -22,7 +22,7 @@ const Header = ({ onMenuToggle, searchQuery, onSearchChange, onSearchClear }) =>
       case "/settings":
         return "Settings";
       default:
-        if (location.pathname.startsWith("/plans/")) {
+if (location.pathname.startsWith("/media-plans/")) {
           return "Media Plan";
         }
         return "MediaFlow Pro";
@@ -45,8 +45,8 @@ const Header = ({ onMenuToggle, searchQuery, onSearchChange, onSearchClear }) =>
           <div>
             <h1 className="text-2xl font-bold text-slate-900">{getPageTitle()}</h1>
             <p className="text-sm text-slate-600 mt-1">
-              {location.pathname === "/" && "Overview of your media planning activities"}
-              {location.pathname === "/plans" && "Manage your media plans and campaigns"}
+{location.pathname === "/" && "Overview of your media planning activities"}
+              {location.pathname === "/media-plans" && "Manage your media plans and campaigns"}
               {location.pathname === "/audiences" && "Define and organize your target audiences"}
               {location.pathname === "/competitors" && "Research and analyze competitor advertising"}
               {location.pathname === "/reports" && "Performance insights and analytics"}

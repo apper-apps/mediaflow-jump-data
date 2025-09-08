@@ -38,7 +38,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Navigate to="/dashboard" replace />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/media-plans" element={<MediaPlans />} />
+<Route path="/media-plans" element={<MediaPlans />} />
                 <Route path="/media-plans/:id" element={<MediaPlanDetail />} />
                 <Route path="/competitors" element={<CompetitorLibrary />} />
                 <Route path="/audiences" element={<Audiences />} />

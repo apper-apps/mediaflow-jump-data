@@ -2,7 +2,7 @@ import audiencesMockData from "@/services/mockData/audiences.json";
 
 class AudiencesService {
   constructor() {
-    this.data = [...audiencesMockData];
+this.data = [...audiencesMockData];
     this.currentId = Math.max(...this.data.map(item => item.Id)) + 1;
   }
 
@@ -17,7 +17,7 @@ class AudiencesService {
 
   async getById(id) {
     await this.delay();
-    const item = this.data.find(item => item.Id === parseInt(id));
+const item = this.data.find(item => item.Id === parseInt(id));
     if (!item) {
       throw new Error("Audience not found");
     }
@@ -28,7 +28,7 @@ class AudiencesService {
     await this.delay();
     const item = {
       ...newItem,
-      Id: this.currentId++,
+Id: this.currentId++,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
@@ -38,7 +38,7 @@ class AudiencesService {
 
   async update(id, updatedData) {
     await this.delay();
-    const index = this.data.findIndex(item => item.Id === parseInt(id));
+const index = this.data.findIndex(item => item.Id === parseInt(id));
     if (index === -1) {
       throw new Error("Audience not found");
     }
@@ -48,7 +48,7 @@ class AudiencesService {
 
   async delete(id) {
     await this.delay();
-    const index = this.data.findIndex(item => item.Id === parseInt(id));
+const index = this.data.findIndex(item => item.Id === parseInt(id));
     if (index === -1) {
       throw new Error("Audience not found");
     }

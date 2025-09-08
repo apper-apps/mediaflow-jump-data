@@ -9,14 +9,14 @@ import { toast } from "react-toastify";
 const BudgetAllocator = ({ 
   totalBudget = 0, 
   channels = [], 
-  onChannelsChange,
+onChannelsChange,
   className = ""
 }) => {
   const [localChannels, setLocalChannels] = useState(channels);
   const [showChart, setShowChart] = useState(false);
 
   useEffect(() => {
-    setLocalChannels(channels);
+setLocalChannels(channels);
   }, [channels]);
 
   const handleChannelAdd = (newChannel) => {

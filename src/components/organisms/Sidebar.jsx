@@ -14,8 +14,8 @@ const Sidebar = ({ isOpen, onClose }) => {
       badge: null
     },
     {
-      name: "Media Plans",
-      href: "/plans", 
+name: "Media Plans",
+      href: "/media-plans",
       icon: "FileText",
       badge: "12"
     },
@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, onClose }) => {
     },
     {
       name: "Competitor Library",
-      href: "/competitors",
+href: "/competitors",
       icon: "Eye",
       badge: "89"
     },
@@ -46,7 +46,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   ];
 
   const NavItem = ({ item }) => {
-    const isActive = location.pathname === item.href || 
+const isActive = location.pathname === item.href || 
       (item.href === "/" ? location.pathname === "/" : location.pathname.startsWith(item.href));
 
     return (

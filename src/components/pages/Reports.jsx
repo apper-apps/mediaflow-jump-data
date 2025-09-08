@@ -36,7 +36,7 @@ const Reports = () => {
 
       // Calculate metrics
       const totalPlans = plans.length;
-      const activePlans = plans.filter(p => p.status === "active").length;
+const activePlans = plans.filter(p => p.status === "active").length;
       const completedPlans = plans.filter(p => p.status === "completed").length;
       
       const totalBudget = plans.reduce((sum, plan) => 
@@ -45,7 +45,7 @@ const Reports = () => {
 
       // Channel distribution
       const channelBudgets = {};
-      plans.forEach(plan => {
+plans.forEach(plan => {
         plan.channels?.forEach(channel => {
           if (channelBudgets[channel.platform]) {
             channelBudgets[channel.platform] += channel.budget || 0;
@@ -73,7 +73,7 @@ const Reports = () => {
 
       // Performance by objective (mock data)
       const objectivePerformance = [
-        { objective: "Brand Awareness", plans: plans.filter(p => p.objective === "brand-awareness").length, budget: totalBudget * 0.3 },
+{ objective: "Brand Awareness", plans: plans.filter(p => p.objective === "brand-awareness").length, budget: totalBudget * 0.3 },
         { objective: "Lead Generation", plans: plans.filter(p => p.objective === "lead-generation").length, budget: totalBudget * 0.25 },
         { objective: "Conversions", plans: plans.filter(p => p.objective === "conversions").length, budget: totalBudget * 0.2 },
         { objective: "Traffic", plans: plans.filter(p => p.objective === "traffic").length, budget: totalBudget * 0.15 },
@@ -425,7 +425,7 @@ const Reports = () => {
                 </thead>
                 <tbody>
                   {reportsData.topPerformers.map((plan) => {
-                    const totalBudget = plan.channels?.reduce((sum, ch) => sum + (ch.budget || 0), 0) || 0;
+const totalBudget = plan.channels?.reduce((sum, ch) => sum + (ch.budget || 0), 0) || 0;
                     return (
                       <tr key={plan.Id} className="border-b border-slate-100 hover:bg-slate-50">
                         <td className="py-3 px-4">

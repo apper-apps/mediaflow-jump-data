@@ -40,7 +40,7 @@ const Dashboard = () => {
 
       // Calculate stats
       const totalPlans = plans.length;
-      const activePlans = plans.filter(p => p.status === "active").length;
+const activePlans = plans.filter(p => p.status === "active").length;
       const totalBudget = plans.reduce((sum, plan) => 
         sum + (plan.channels?.reduce((channelSum, channel) => channelSum + (channel.budget || 0), 0) || 0), 0
       );
@@ -51,7 +51,7 @@ const Dashboard = () => {
       plans.forEach(plan => {
         plan.channels?.forEach(channel => {
           if (channelMap[channel.platform]) {
-            channelMap[channel.platform] += channel.budget || 0;
+channelMap[channel.platform] += channel.budget || 0;
           } else {
             channelMap[channel.platform] = channel.budget || 0;
           }
@@ -275,7 +275,7 @@ const Dashboard = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => navigate("/plans")}
+onClick={() => navigate("/media-plans")}
                 icon="ArrowRight"
               >
                 View All
@@ -286,28 +286,28 @@ const Dashboard = () => {
             {recentPlans.length === 0 ? (
               <Empty 
                 type="plans"
-                onAction={() => navigate("/plans")}
+onAction={() => navigate("/media-plans")}
                 actionLabel="Create First Plan"
               />
             ) : (
               <div className="space-y-4">
                 {recentPlans.map((plan) => (
                   <div
-                    key={plan.Id}
-                    className="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
-                    onClick={() => navigate(`/plans/${plan.Id}`)}
+key={plan.Id}
+className="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+                    onClick={() => navigate(`/media-plans/${plan.Id}`)}
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-accent-100 rounded-lg flex items-center justify-center">
                         <ApperIcon name="FileText" className="w-5 h-5 text-primary-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-slate-900">{plan.name}</h4>
+<h4 className="font-medium text-slate-900">{plan.name}</h4>
                         <p className="text-sm text-slate-600">{plan.objective}</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-slate-900">
+<p className="font-semibold text-slate-900">
                         ${(plan.channels?.reduce((sum, ch) => sum + (ch.budget || 0), 0) || 0).toLocaleString()}
                       </p>
                       <p className="text-sm text-slate-600">{plan.status}</p>

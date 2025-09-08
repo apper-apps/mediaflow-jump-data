@@ -118,7 +118,7 @@ const CompetitorLibrary = () => {
   };
 
   const addTag = () => {
-    if (newTag.trim() && !uploadForm.tags.includes(newTag.trim())) {
+if (newTag.trim() && !uploadForm.tags.includes(newTag.trim())) {
       setUploadForm(prev => ({
         ...prev,
         tags: [...prev.tags, newTag.trim()]
