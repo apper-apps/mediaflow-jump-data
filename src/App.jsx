@@ -20,6 +20,8 @@ import Settings from '@/components/pages/Settings'
 // Create a basic store (you may want to expand this later)
 const store = configureStore({
   reducer: {
+    // Minimal root reducer to prevent "no valid reducer" error
+    app: (state = { initialized: true }) => state,
     // Add your reducers here as needed
   },
 })
