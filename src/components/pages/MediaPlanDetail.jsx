@@ -173,7 +173,7 @@ const totalBudget = plan.channels?.reduce((sum, channel) => sum + (channel.budge
                     className="text-2xl font-bold border-0 p-0 bg-transparent focus:ring-0"
 />
                 ) : (
-                  {plan.name}
+                  plan.name
                 )}
               </h1>
 <Badge variant={getStatusColor(plan.status)}>
@@ -187,9 +187,9 @@ const totalBudget = plan.channels?.reduce((sum, channel) => sum + (channel.budge
                   onChange={(e) => setEditForm(prev => ({ ...prev, objective: e.target.value }))}
                   options={objectiveOptions}
                   className="border-0 p-0 bg-transparent"
-                />
+/>
               ) : (
-{plan.objective}
+                plan.objective
               )}
             </p>
           </div>
@@ -284,9 +284,9 @@ name: plan.name || "",
                         value={editForm.startDate}
                         onChange={(e) => setEditForm(prev => ({ ...prev, startDate: e.target.value }))}
                       />
-                    ) : (
+) : (
                       <p className="text-slate-900">
-{plan.startDate ? format(new Date(plan.startDate), "PPP") : "Not set"}
+                        {plan.startDate ? format(new Date(plan.startDate), "PPP") : "Not set"}
                       </p>
                     )}
                   </div>
@@ -300,9 +300,9 @@ name: plan.name || "",
                         value={editForm.endDate}
                         onChange={(e) => setEditForm(prev => ({ ...prev, endDate: e.target.value }))}
                       />
-                    ) : (
+) : (
                       <p className="text-slate-900">
-{plan.endDate ? format(new Date(plan.endDate), "PPP") : "Not set"}
+                        {plan.endDate ? format(new Date(plan.endDate), "PPP") : "Not set"}
                       </p>
                     )}
                   </div>
@@ -318,9 +318,9 @@ name: plan.name || "",
                       value={editForm.totalBudget}
                       onChange={(e) => setEditForm(prev => ({ ...prev, totalBudget: e.target.value }))}
                     />
-                  ) : (
+) : (
                     <p className="text-2xl font-bold text-primary-600">
-${(plan.totalBudget || 0).toLocaleString()}
+                      ${(plan.totalBudget || 0).toLocaleString()}
                     </p>
                   )}
                 </div>
@@ -334,9 +334,9 @@ ${(plan.totalBudget || 0).toLocaleString()}
                       value={editForm.status}
                       onChange={(e) => setEditForm(prev => ({ ...prev, status: e.target.value }))}
                       options={statusOptions}
-                    />
+/>
                   ) : (
-<Badge variant={getStatusColor(plan.status)}>
+                    <Badge variant={getStatusColor(plan.status)}>
                       {plan.status}
                     </Badge>
                   )}
@@ -352,9 +352,9 @@ ${(plan.totalBudget || 0).toLocaleString()}
               <CardContent>
                 <div className="grid grid-cols-3 gap-4 mb-4">
                   <div className="text-center">
-                    <p className="text-sm text-slate-600">Total Budget</p>
+<p className="text-sm text-slate-600">Total Budget</p>
                     <p className="text-xl font-bold text-slate-900">
-${(plan.totalBudget || 0).toLocaleString()}
+                      ${(plan.totalBudget || 0).toLocaleString()}
                     </p>
                   </div>
                   <div className="text-center">
@@ -369,13 +369,13 @@ ${(plan.totalBudget || 0).toLocaleString()}
                       ${remainingBudget.toLocaleString()}
                     </p>
                   </div>
-                </div>
+</div>
                 
-{plan.channels && plan.channels.length > 0 && (
+                {plan.channels && plan.channels.length > 0 && (
                   <div className="space-y-3">
                     <h4 className="font-medium text-slate-900">Channel Breakdown</h4>
                     {plan.channels.map((channel) => (
-<div key={channel.id} className="flex items-center justify-between">
+                      <div key={channel.id} className="flex items-center justify-between">
                         <span className="text-sm text-slate-700">{channel.platform}</span>
                         <span className="font-medium text-slate-900">
                           ${(channel.budget || 0).toLocaleString()} 
@@ -398,9 +398,9 @@ ${(plan.totalBudget || 0).toLocaleString()}
               <CardHeader>
                 <CardTitle>Team Members</CardTitle>
               </CardHeader>
-              <CardContent>
+<CardContent>
                 <div className="space-y-3">
-{plan.collaborators?.map((collaborator, index) => (
+                  {plan.collaborators?.map((collaborator, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full flex items-center justify-center">
                         <span className="text-white text-sm font-semibold">
@@ -423,17 +423,17 @@ ${(plan.totalBudget || 0).toLocaleString()}
                 <CardTitle>Quick Stats</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="flex items-center justify-between">
+<div className="flex items-center justify-between">
                   <span className="text-sm text-slate-600">Channels</span>
-<span className="font-medium">{plan.channels?.length || 0}</span>
+                  <span className="font-medium">{plan.channels?.length || 0}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-slate-600">Audiences</span>
-<span className="font-medium">{plan.audiences?.length || 0}</span>
+                  <span className="font-medium">{plan.audiences?.length || 0}</span>
                 </div>
-                <div className="flex items-center justify-between">
+<div className="flex items-center justify-between">
                   <span className="text-sm text-slate-600">Last Updated</span>
-<span className="text-sm text-slate-700">
+                  <span className="text-sm text-slate-700">
                     {format(new Date(plan.updatedAt), "MMM d, yyyy")}
                   </span>
                 </div>
@@ -443,9 +443,9 @@ ${(plan.totalBudget || 0).toLocaleString()}
         </div>
       )}
 
-      {activeTab === "budget" && (
+{activeTab === "budget" && (
         <BudgetAllocator
-totalBudget={plan.totalBudget || 0}
+          totalBudget={plan.totalBudget || 0}
           channels={plan.channels || []}
           onChannelsChange={handleChannelsChange}
         />
@@ -460,9 +460,9 @@ totalBudget={plan.totalBudget || 0}
           <Card>
             <CardHeader>
               <CardTitle>Saved Audiences</CardTitle>
-            </CardHeader>
+</CardHeader>
             <CardContent>
-{plan.audiences && plan.audiences.length > 0 ? (
+              {plan.audiences && plan.audiences.length > 0 ? (
                 <div className="space-y-3">
                   {plan.audiences.map((audienceId, index) => (
                     <div key={index} className="p-3 bg-slate-50 rounded-lg">
